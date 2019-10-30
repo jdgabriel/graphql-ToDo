@@ -1,0 +1,20 @@
+type Todo {
+	task: String!
+	complete: Boolean!
+}
+
+input TodoInput {
+	task: String!
+}
+
+type Query {
+	todos: [Todo]
+}
+
+type Mutation {
+	newTodo(data: TodoInput): Todo
+}
+
+type Subscription {
+	newTodoAdded: Todo
+}

@@ -1,6 +1,16 @@
-const { ApolloServer } = require('apollo-server');
+const { ApolloServer, PubSub } = require('apollo-server');
 const { typeDefs, resolvers } = require('../graphql');
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const pubsub = new PubSub();
+
+const server = new ApolloServer({
+	typeDefs,
+	resolvers,
+	context: () => {
+		return {
+			pubsub
+		};
+	}
+});
 
 module.exports = server;
