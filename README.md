@@ -1,2 +1,5 @@
-# graphql-subscription-coding
-GraphQL Subscription usage
+# GraphQL Subscription Coding
+
+Basic GraphQL TODO, for study library graphql subscription
+
+[coding...]
