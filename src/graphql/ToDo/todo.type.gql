@@ -1,10 +1,29 @@
 type Todo {
+	id: ID!
 	task: String!
 	complete: Boolean!
 }
 
+enum TodoEnum {
+	CREATED
+	UPDATED
+	REMOVED
+}
+
 input TodoInput {
-	task: String!
+	id: ID
+	task: String
+	complete: Boolean
+}
+
+input UpdateTodo {
+	task: String
+	complete: Boolean
+}
+
+type TodoResponse {
+	mutation: TodoEnum
+	node: Todo
 }
 
 type Query {
@@ -12,9 +31,11 @@ type Query {
 }
 
 type Mutation {
-	newTodo(data: TodoInput): Todo
+	newTodo(data: TodoInput): TodoResponse!
+	editTodo(fields: UpdateTodo, where: TodoInput): TodoResponse!
+	removeTodo(where: TodoInput): Boolean!
 }
 
 type Subscription {
-	newTodoAdded: Todo
+	todo(mutation: TodoEnum): TodoResponse
 }
