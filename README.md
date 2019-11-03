@@ -27,7 +27,7 @@ query all {
 
 ##### Response
 
-```json
+```javascript
 {
 	"data": {
 		"todos": [
@@ -99,7 +99,7 @@ mutation edit {
 
 ##### Response
 
-```json
+```javascript
 {
 	"data": {
 		"editTodo": {
@@ -126,7 +126,7 @@ mutation remove {
 
 ##### Response
 
-```json
+```javascript
 {
 	"data": {
 		"removeTodo": true
@@ -157,7 +157,7 @@ subscription {
 
 ##### Response
 
-```json
+```javascript
 {
   "data": {
     "todo": {
